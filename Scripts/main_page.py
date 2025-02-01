@@ -2,7 +2,6 @@ import streamlit as st
 
 def main_p():
     st.title("PakWheels Car Price Predictor 🚗")
-    
     st.subheader("🚗 Welcome to the Car Price Predictor!")
     
     st.markdown(
