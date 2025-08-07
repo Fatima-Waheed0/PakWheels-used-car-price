@@ -33,9 +33,9 @@ def predict_price(model_year, engine_type, transmission, km_driven, power, unit,
     return predicted_price
 
 def show_prediction():
-    st.markdown("Enter the details of the car to estimate its price:")
+    st.markdown("### Enter the details of the car to estimate its price:")
 
-    years = [str(year) for year in range(1980, 2026)]  
+    years = [str(year) for year in range(1980, 2025)]  
     year = years[::-1]
     
     col1, col2 = st.columns(2)
@@ -53,13 +53,19 @@ def show_prediction():
         company = st.selectbox("Car Company", company_name)
         model_name = st.selectbox("Model Name", car_models)
 
-    # Apply CSS for button size and animation
+    
     st.markdown(
         """
         <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
         div.stButton > button {
-            width: 200px;
-            height: 50px;
+            width: 220px;
+            height: 55px;
             font-size: 18px;
             font-weight: normal;
             background-color: #12a131;
@@ -67,16 +73,17 @@ def show_prediction():
             border-radius: 10px;
             border: none;
             transition: all 0.3s ease-in-out;
+            cursor: pointer;
         }
-        
+
         div.stButton > button:hover {
             background-color: white;
             color: black;
             font-weight: bold;
-            transform: scale(1.05);
+            transform: scale(1.09);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
-        
+
         div.stButton > button:active {
             transform: scale(0.95);
         }
@@ -85,7 +92,7 @@ def show_prediction():
         unsafe_allow_html=True
     )
 
-    # Centering the button
+    # Center the Streamlit button
     col_center = st.columns([1, 2, 1])  # Middle column is wider
     with col_center[1]:  
         if st.button("Predict Price"):
